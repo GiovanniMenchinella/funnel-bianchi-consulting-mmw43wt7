@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grazie — Bianchi Consulting</title>
+
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1234567890123456');
+    fbq('track', 'PageView');
+    fbq('track', 'Schedule');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1234567890123456&ev=Schedule&noscript=1" />
+  </noscript>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #2563EB;
+      --accent-hover: #1d4ed8;
+      --bg-body: #0A0A0A;
+      --bg-card: #111111;
+      --bg-elevated: #1A1A1A;
+      --text-primary: #F8F8F8;
+      --text-secondary: #A0A0A0;
+      --text-muted: #606060;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-pill: 9999px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Animations ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    @keyframes scaleIn {
+      from {
+        opacity: 0;
+        transform: scale(0.7);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    @keyframes checkDraw {
+      from { stroke-dashoffset: 100; }
+      to   { stroke-dashoffset: 0; }
+    }
+
+    @keyframes circleDraw {
+      from { stroke-dashoffset: 300; }
+      to   { stroke-dashoffset: 0; }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease both;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.35s; }
+    .delay-4 { animation-delay: 0.5s; }
+    .delay-5 { animation-delay: 0.65s; }
+    .delay-6 { animation-delay: 0.8s; }
+
+    /* ── Layout ── */
+    .page-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    /* ── Header / Logo ── */
+    .header {
+      width: 100%;
+      max-width: 720px;
+      padding: 40px 0 0;
+      display: flex;
+      justify-content: center;
+      animation: fadeIn 0.5s ease both;
+    }
+
+    .logo-wrap img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .logo-fallback {
+      font-size: clamp(18px, 3vw, 22px);
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.5px;
+    }
+
+    .logo-fallback span {
+      color: var(--accent);
+    }
+
+    /* ── Hero Section ── */
+    .hero {
+      width: 100%;
+      max-width: 720px;
+      text-align: center;
+      padding: 64px 0 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    /* Checkmark SVG */
+    .check-wrap {
+      animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+      animation-delay: 0.15s;
+    }
+
+    .check-circle {
+      stroke-dasharray: 300;
+      stroke-dashoffset: 300;
+      animation: circleDraw 0.7s ease 0.3s forwards;
+    }
+
+    .check-path {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      animation: checkDraw 0.5s ease 0.8s forwards;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      color: #93b4fd;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.3px;
+    }
+
+    .hero-pill .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: fadeIn 0.5s ease both;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--text-primary);
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero p.subtitle {
+      font-size: clamp(16px, 2.5vw, 19px);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      max-width: 560px;
+    }
+
+    /* ── Confirmation Card ── */
+    .confirm-card {
+      width: 100%;
+      max-width: 720px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: clamp(28px, 5vw, 44px);
+      margin-bottom: 32px;
+    }
+
+    .confirm-card p {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-secondary);
+      line-height: 1.75;
+    }
+
+    .confirm-card strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* ── Steps Section ── */
+    .steps-section {
+      width: 100%;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .steps-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .steps-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: clamp(20px, 4vw, 28px);
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      transition: border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .step-card:hover {
+      border-color: rgba(37, 99, 235, 0.3);
+      background: var(--bg-elevated);
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(37, 99, 235, 0.12);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .step-content h3 {
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .step-content p {
+      font-size: clamp(14px, 1.8vw, 15px);
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── WhatsApp Button ── */
+    .cta-section {
+      width: 100%;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .cta-label {
+      font-size: clamp(14px, 2vw, 16px);
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 56px;
+      background: #16a34a;
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-btn);
+      padding: 14px 28px;
+      transition: background 0.2s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-whatsapp:hover {
+      background: #15803d;
+      transform: translateY(-1px);
+    }
+
+    .btn-whatsapp:active {
+      transform: translateY(0);
+    }
+
+    /* ── Reminder Box ── */
+    .reminder-box {
+      width: 100%;
+      max-width: 720px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-card);
+      padding: clamp(24px, 4vw, 36px);
+      margin-bottom: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    @media (min-width: 580px) {
+      .reminder-box {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+      }
+    }
+
+    .reminder-text h3 {
+      font-size: clamp(15px, 2vw, 17px);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+    }
+
+    .reminder-text p {
+      font-size: clamp(13px, 1.8vw, 15px);
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .btn-secondary {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 48px;
+      padding: 12px 24px;
+      background: transparent;
+      border: 1px solid rgba(37, 99, 235, 0.4);
+      color: var(--accent);
+      font-family: 'Outfit', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-btn);
+      transition: background 0.2s ease, border-color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(37, 99, 235, 0.1);
+      border-color: rgba(37, 99, 235, 0.6);
+    }
+
+    /* ── Divider ── */
+    .divider {
+      width: 100%;
+      max-width: 720px;
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 32px;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg-body);
+      border-top: 1px solid var(--border);
+      padding: 32px 20px;
+      width: 100%;
+    }
+
+    .footer-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-secondary);
+    }
+
+    .footer-legal {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ── Icon helpers ── */
+    .icon-wrap {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    /* ── Responsive tweaks ── */
+    @media (min-width: 600px) {
+      .hero {
+        padding: 80px 0 56px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page-wrapper">
+
+    <!-- 1. LOGO -->
+    <header class="header fade-in-up">
+      <div class="logo-wrap">
+        <img
+          src="https://bianchiconsulting.it/logo.png"
+          alt="Bianchi Consulting"
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+        />
+        <div class="logo-fallback" style="display:none;">
+          Bianchi <span>Consulting</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- 2. HERO: Checkmark + Headline -->
+    <section class="hero">
+
+      <!-- Animated checkmark SVG -->
+      <div class="check-wrap">
+        <svg width="88" height="88" viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle
+            class="check-circle"
+            cx="44" cy="44" r="40"
+            stroke="#2563EB"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            fill="rgba(37,99,235,0.08)"
+          />
+          <path
+            class="check-path"
+            d="M27 44.5L38.5 56L61 33"
+            stroke="#2563EB"
+            stroke-width="3.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <div class="hero-pill fade-in-up delay-1">
+        <div class="dot"></div>
+        Richiesta confermata
+      </div>
+
+      <h1 class="fade-in-up delay-2">
+        Ottimo lavoro!
+      </h1>
+
+      <p class="subtitle fade-in-up delay-3">
+        Abbiamo ricevuto la tua richiesta di call. Sei a un passo dal trasformare il tuo e-commerce in una macchina da fatturato prevedibile.
+      </p>
+
+    </section>
+
+    <!-- 3. CONFIRMATION MESSAGE CARD -->
+    <div class="confirm-card fade-in-up delay-3">
+      <p>
+        La tua call con il team di <strong>Bianchi Consulting</strong> è stata registrata con successo.
+        Riceverai a breve un'email di conferma con tutti i dettagli. Se non la vedi nella posta in arrivo,
+        controlla anche la cartella <strong>spam o promozioni</strong>.
+      </p>
+    </div>
+
+    <!-- 4. WHAT HAPPENS NEXT -->
+    <section class="steps-section fade-in-up delay-4">
+      <p class="steps-label">Cosa succede adesso</p>
+
+      <div class="steps-grid">
+
+        <!-- Step 1 -->
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Controlla la tua email</h3>
+            <p>
+              Riceverai un'email di conferma con i dettagli della call: orario, link di accesso e tutto quello che ti serve per essere pronto. Tienila a portata di mano.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Prepara queste informazioni prima della call</h3>
+            <p>
+              Per renderla il piu' utile possibile, tieni pronti: i tuoi dati di fatturato attuali (entrate mensili e margine medio), il budget mensile che stai investendo o vuoi investire in ads, e i canali di acquisizione che hai gia' provato. Piu' sei preciso, piu' valore portiamo.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Durante la call analizzeremo la tua situazione</h3>
+            <p>
+              Il nostro esperto studiera' il tuo store, i tuoi numeri attuali e le campagne gia' provate. Ti mostreremo esattamente dove stai lasciando soldi sul tavolo e come il <strong>Sistema E-Commerce Acceleration</strong> puo' portarti da 10k a 50k/mese in 90 giorni — con un ROAS garantito o rimborso integrale.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5. WHATSAPP BUTTON -->
+    <div class="cta-section fade-in-up delay-5">
+      <p class="cta-label">
+        Hai domande urgenti o vuoi confermare la call direttamente? Scrivici su WhatsApp — rispondiamo entro pochi minuti.
+      </p>
+      <a
+        href="https://wa.me/393331234567?text=Ciao%2C%20ho%20appena%20prenotato%20una%20call%20e%20volevo%20confermare."
+        class="btn-whatsapp"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <!-- WhatsApp SVG icon -->
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Scrivici su WhatsApp
+      </a>
+    </div>
+
+    <!-- 6. REMINDER BOX: Nel frattempo guarda il video -->
+    <div class="reminder-box fade-in-up delay-6">
+      <div class="reminder-text">
+        <h3>Nel frattempo, non perdere il video</h3>
+        <p>
+          Scopri come il Sistema E-Commerce Acceleration ha portato Giorgio da 8k a 47k/mese in soli 3 mesi — e come potrebbe funzionare per il tuo store.
+        </p>
+      </div>
+      <a href="vsl.html" class="btn-secondary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="10"/>
+          <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"/>
+        </svg>
+        Guarda il video
+      </a>
+    </div>
+
+  </div><!-- end page-wrapper -->
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-links">
+        <a href="https://bianchiconsulting.it/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://bianchiconsulting.it/cookie" target="_blank" rel="noopener">Cookie Policy</a>
+      </div>
+      <p class="footer-legal">
+        Bianchi Consulting Srl &mdash; P.IVA IT12345678901<br />
+        Tutti i diritti riservati &copy; 2024
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

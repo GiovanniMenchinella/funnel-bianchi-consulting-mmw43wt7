@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bianchi Consulting — Da 10k a 50k/mese in 90 Giorni</title>
+  <meta name="description" content="Portiamo il tuo e-commerce da 10k a 50k/mese in 90 giorni con ads profittevoli. Garanzia 3x ROAS o rimborso totale." />
+
+  <!-- Google Fonts: Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <!-- Facebook Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1234567890123456');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1234567890123456&ev=PageView&noscript=1"/>
+  </noscript>
+
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --accent: #2563EB;
+      --accent-dark: #1d4ed8;
+      --accent-light: rgba(37, 99, 235, 0.12);
+      --bg-body: #0A0A0A;
+      --bg-card: #111111;
+      --bg-elevated: #1A1A1A;
+      --text-primary: #F8F8F8;
+      --text-secondary: #A0A0A0;
+      --text-muted: #606060;
+      --border: rgba(255, 255, 255, 0.08);
+      --radius-card: 12px;
+      --radius-btn: 8px;
+      --radius-pill: 9999px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .fade-in {
+      animation: fadeInUp 0.7s ease forwards;
+    }
+
+    .fade-in-delay-1 { animation-delay: 0.1s; opacity: 0; }
+    .fade-in-delay-2 { animation-delay: 0.25s; opacity: 0; }
+    .fade-in-delay-3 { animation-delay: 0.4s; opacity: 0; }
+    .fade-in-delay-4 { animation-delay: 0.55s; opacity: 0; }
+
+    /* Layout */
+    .container {
+      width: 100%;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .container--wide {
+      max-width: 1100px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    /* Divider */
+    .section-divider {
+      width: 100%;
+      height: 1px;
+      background: var(--border);
+      margin: 0;
+    }
+
+    /* Header / Logo */
+    .site-header {
+      padding: 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-bottom: 1px solid var(--border);
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .site-header img {
+      height: 36px;
+      width: auto;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .logo-fallback {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+    }
+
+    .logo-fallback span {
+      color: var(--accent);
+    }
+
+    /* Hero / Headline */
+    .hero {
+      padding: 100px 0 60px;
+      text-align: center;
+    }
+
+    .pill-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      color: #93b4fd;
+      font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      border-radius: var(--radius-pill);
+      margin-bottom: 28px;
+    }
+
+    .pill-badge::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero-headline {
+      font-size: clamp(2rem, 5.5vw, 3.6rem);
+      font-weight: 800;
+      line-height: 1.12;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+    }
+
+    .hero-headline .accent-text {
+      color: var(--accent);
+    }
+
+    .hero-subheadline {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 620px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    /* Stats row */
+    .stats-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 48px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+
+    .stat-divider {
+      width: 1px;
+      height: 40px;
+      background: var(--border);
+    }
+
+    /* Video Section */
+    .video-section {
+      padding: 20px 0 80px;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .video-caption {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    /* Copy sections */
+    .copy-section {
+      padding: 80px 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+    }
+
+    .section-body {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .section-body strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Problem block */
+    .problem-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      margin-bottom: 32px;
+    }
+
+    .problem-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .problem-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .problem-list li .icon-x {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: #ef4444;
+      margin-top: 2px;
+    }
+
+    /* Mechanism */
+    .mechanism-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+    }
+
+    .mechanism-step {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 32px 28px;
+      position: relative;
+      transition: border-color 0.2s ease;
+    }
+
+    .mechanism-step:hover {
+      border-color: rgba(37, 99, 235, 0.35);
+    }
+
+    .step-number {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .step-desc {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+    }
+
+    /* Proof / Testimonial */
+    .proof-card {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: var(--radius-card);
+      padding: 40px;
+      margin: 40px 0;
+    }
+
+    .proof-quote {
+      font-size: clamp(1.05rem, 2vw, 1.2rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: italic;
+    }
+
+    .proof-meta {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .proof-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .proof-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .proof-role {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    .proof-result-badge {
+      margin-left: auto;
+      background: rgba(34, 197, 94, 0.1);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      color: #4ade80;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+
+    /* Offer / Deliverables */
+    .offer-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 48px;
+    }
+
+    .offer-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      flex-wrap: wrap;
+    }
+
+    .offer-price {
+      text-align: right;
+    }
+
+    .price-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 4px;
+    }
+
+    .price-amount {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      color: var(--text-primary);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .price-period {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .checklist {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .checklist li .check-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: #4ade80;
+      margin-top: 2px;
+    }
+
+    .checklist li strong {
+      color: var(--text-primary);
+    }
+
+    /* Guarantee */
+    .guarantee-box {
+      background: var(--bg-elevated);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: var(--radius-card);
+      padding: 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #3b82f6);
+    }
+
+    .guarantee-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .guarantee-title {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .guarantee-text {
+      font-size: clamp(0.95rem, 2vw, 1.05rem);
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .guarantee-text strong {
+      color: var(--text-primary);
+    }
+
+    /* CTA Section */
+    .cta-section {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .cta-subtitle {
+      font-size: clamp(0.95rem, 2vw, 1.1rem);
+      color: var(--text-secondary);
+      margin-bottom: 40px;
+      line-height: 1.7;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      max-width: 440px;
+      margin: 0 auto 24px;
+    }
+
+    .btn-primary {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 60px;
+      background: var(--accent);
+      color: #ffffff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: var(--radius-btn);
+      padding: 0 32px;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    .btn-whatsapp {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      min-height: 56px;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-decoration: none;
+      border-radius: var(--radius-btn);
+      border: 1px solid var(--border);
+      padding: 0 28px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-whatsapp:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      color: var(--text-primary);
+      background: var(--bg-elevated);
+    }
+
+    .cta-micro-copy {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-section {
+      padding: 80px 0;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: 40px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+      margin-bottom: 8px;
+    }
+
+    .faq-item:hover {
+      border-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 28px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      list-style: none;
+      user-select: none;
+    }
+
+    .faq-question::-webkit-details-marker { display: none; }
+
+    .faq-chevron {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--text-muted);
+      transition: transform 0.25s ease;
+    }
+
+    details[open] .faq-chevron {
+      transform: rotate(180deg);
+    }
+
+    details[open] > summary {
+      color: var(--accent);
+    }
+
+    .faq-answer {
+      padding: 0 28px 24px;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+    }
+
+    .faq-answer strong {
+      color: var(--text-primary);
+    }
+
+    /* Footer */
+    .site-footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .footer-links a {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text-secondary);
+    }
+
+    .footer-legal {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* Utility */
+    .text-center { text-align: center; }
+    .mb-8 { margin-bottom: 8px; }
+    .mb-16 { margin-bottom: 16px; }
+    .mb-24 { margin-bottom: 24px; }
+    .mb-32 { margin-bottom: 32px; }
+    .mb-48 { margin-bottom: 48px; }
+
+    /* Highlight box */
+    .highlight-box {
+      background: var(--accent-light);
+      border: 1px solid rgba(37, 99, 235, 0.25);
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+
+    .highlight-box p {
+      font-size: 0.95rem;
+      color: #93b4fd;
+      line-height: 1.7;
+    }
+
+    .highlight-box strong {
+      color: #bfcffe;
+    }
+
+    /* Credibility bar */
+    .credibility-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+      padding: 32px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin: 0;
+    }
+
+    .cred-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .cred-item svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { padding: 60px 0 40px; }
+      .problem-block { padding: 28px 24px; }
+      .offer-section { padding: 28px 24px; }
+      .offer-header { flex-direction: column; }
+      .offer-price { text-align: left; }
+      .guarantee-box { padding: 32px 24px; }
+      .proof-meta { flex-wrap: wrap; }
+      .proof-result-badge { margin-left: 0; }
+      .stat-divider { display: none; }
+      .cta-buttons { max-width: 100%; }
+      section { padding: 60px 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header fade-in">
+    <a href="/">
+      <img
+        src="https://bianchiconsulting.it/logo.png"
+        alt="Bianchi Consulting"
+        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+      />
+      <span class="logo-fallback" style="display:none;">Bianchi<span>Consulting</span></span>
+    </a>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero fade-in fade-in-delay-1">
+    <div class="container">
+      <div class="pill-badge">Sistema E-Commerce Acceleration</div>
+      <h1 class="hero-headline">
+        Porta il tuo e-commerce<br />
+        da 10k a <span class="accent-text">50k/mese</span><br />
+        in soli 90 giorni
+      </h1>
+      <p class="hero-subheadline">
+        Smettila di bruciare budget in ads che non funzionano. Costruiamo per te un sistema di acquisizione clienti prevedibile, profittevole e automatico — o ti rimborsiamo.
+      </p>
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section class="video-section fade-in fade-in-delay-2">
+    <div class="container">
+      <div class="video-wrapper">
+        <iframe
+          src="https://player.vimeo.com/video/76979871?autoplay=0&title=0&byline=0&portrait=0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          title="Bianchi Consulting — Sistema E-Commerce Acceleration"
+        ></iframe>
+      </div>
+      <p class="video-caption">Guarda il video completo prima di prenotare la tua call gratuita</p>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <div class="container fade-in fade-in-delay-3">
+    <div class="credibility-bar">
+      <div class="cred-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+        </svg>
+        Meta Blueprint Certified
+      </div>
+      <div class="cred-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+        80+ clienti e-commerce
+      </div>
+      <div class="cred-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        Oltre 2M€ di ad spend gestito
+      </div>
+      <div class="cred-item">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+        </svg>
+        ROAS medio 4.2x
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"></div>
+
+  <!-- Problem + Agitazione -->
+  <section class="copy-section">
+    <div class="container">
+      <p class="section-label">Il vero problema</p>
+      <h2 class="section-title">Perché il tuo e-commerce è bloccato sotto i 10k/mese</h2>
+
+      <p class="section-body">
+        Se sei arrivato qui, probabilmente hai già provato a far crescere il tuo store. Hai testato Google Ads da solo, hai assunto qualcuno, hai comprato corsi online. <strong>Hai investito tempo, denaro ed energie. Ma i risultati non sono arrivati come speravi.</strong>
+      </p>
+      <p class="section-body">
+        Non è colpa tua. Il problema non è la tua volontà, né il tuo prodotto. Il problema è che <strong>stai operando senza un sistema</strong> — stai raccogliendo ordini qua e là, sperando che le campagne funzionino, fidandoti di chi ti ha promesso la luna e ti ha consegnato aria.
+      </p>
+
+      <div class="problem-block">
+        <p class="section-label mb-8">Riconosci queste situazioni?</p>
+        <ul class="problem-list">
+          <li>
+            <svg class="icon-x" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <span>Spendi in ads ogni mese ma il ROAS non copre nemmeno i costi — e non sai perché</span>
+          </li>
+          <li>
+            <svg class="icon-x" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <span>Hai assunto un freelance o un'agenzia che ti ha promesso risultati e poi è scomparsa con i tuoi soldi</span>
+          </li>
+          <li>
+            <svg class="icon-x" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <span>Le tue vendite sono irregolari: un mese bene, due mesi male. Non riesci a prevedere le entrate</span>
+          </li>
+          <li>
+            <svg class="icon-x" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+            <span>Sai che il tuo prodotto è buono, ma non riesci a trovare nuovi clienti in modo costante e scalabile</span>
+          </li>
+        </ul>
+      </div>
+
+      <p class="section-body">
+        Ogni giorno che passi senza un sistema funzionante è un giorno in cui i tuoi concorrenti si prendono i tuoi clienti. <strong>Il problema non è il budget, non sono le ads. Il problema è l'assenza di un sistema costruito per scalare.</strong>
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Meccanismo Unico -->
+  <section class="copy-section">
+    <div class="container">
+      <p class="section-label">La soluzione</p>
+      <h2 class="section-title">Il Sistema E-Commerce Acceleration</h2>
+
+      <p class="section-body">
+        Non facciamo semplice gestione ads. Costruiamo per te un <strong>sistema completo di acquisizione clienti</strong> che funziona in modo prevedibile, scalabile — e che continua a performare anche nel tempo.
+      </p>
+      <p class="section-body">
+        La differenza sta nel nostro <strong>algoritmo proprietario di analisi delle creatività</strong>: in sole 48 ore identifichiamo esattamente cosa converte per il tuo pubblico, eliminando settimane di test inutili e denaro sprecato. Solo dopo iniziamo a scalare.
+      </p>
+
+      <div class="mechanism-steps">
+        <div class="mechanism-step">
+          <p class="step-number">Fase 01</p>
+          <h3 class="step-title">Analisi dati</h3>
+          <p class="step-desc">Analizziamo i tuoi dati storici, il mercato e i competitor. Identifichiamo le opportunità nascoste e costruiamo la base strategica per le campagne.</p>
+        </div>
+        <div class="mechanism-step">
+          <p class="step-number">Fase 02</p>
+          <h3 class="step-title">Creatività performante</h3>
+          <p class="step-desc">Il nostro algoritmo proprietario analizza le creatività e identifica in 48h cosa converte davvero. Produciamo asset che scalano, non che bruciano budget.</p>
+        </div>
+        <div class="mechanism-step">
+          <p class="step-number">Fase 03</p>
+          <h3 class="step-title">Scaling automatico</h3>
+          <p class="step-desc">Una volta trovato il sistema profittevole, lo scaliamo in modo strutturato. Più investi, più il sistema diventa efficiente — non il contrario.</p>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p><strong>Perché funziona meglio degli altri approcci:</strong> Non ti vendiamo "gestione ads". Ti costruiamo un sistema di acquisizione clienti completo che funziona anche senza di noi. L'obiettivo è renderti autonomo e profittevole — non dipendente da noi per sempre.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Prova Sociale -->
+  <section class="copy-section">
+    <div class="container">
+      <p class="section-label">Risultati reali</p>
+      <h2 class="section-title">Non parole. Numeri.</h2>
+
+      <p class="section-body">
+        Abbiamo gestito <strong>oltre 2 milioni di euro di ad spend</strong> per clienti nel settore e-commerce, con un ROAS medio di 4.2x. Ma i numeri sono fatti di storie vere. Ecco una di queste.
+      </p>
+
+      <div class="proof-card">
+        <p class="proof-quote">
+          "Ero bloccato a 8.000 euro al mese da quasi un anno. Avevo provato tutto: un'agenzia, un freelance, i corsi. Niente funzionava in modo costante. Con Bianchi Consulting in 3 mesi siamo arrivati a 47.000 euro. Non ci credevo possibile."
+        </p>
+        <div class="proof-meta">
+          <div class="proof-avatar">G</div>
+          <div>
+            <p class="proof-name">Giorgio M.</p>
+            <p class="proof-role">Fondatore, store di abbigliamento online</p>
+          </div>
+          <div class="proof-result-badge">da 8k a 47k/mese</div>
+        </div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-item">
+          <div class="stat-number">2M+</div>
+          <div class="stat-label">Ad spend gestito</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">80+</div>
+          <div class="stat-label">Clienti e-commerce</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">4.2x</div>
+          <div class="stat-label">ROAS medio clienti</div>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <div class="stat-number">5 anni</div>
+          <div class="stat-label">Di esperienza</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Offerta -->
+  <section class="copy-section">
+    <div class="container">
+      <p class="section-label">L'offerta</p>
+      <h2 class="section-title">Cosa ottieni con il Sistema E-Commerce Acceleration</h2>
+
+      <p class="section-body">
+        In 90 giorni costruiamo il tuo sistema di acquisizione clienti da zero. Ecco cosa è incluso:
+      </p>
+
+      <div class="offer-section" style="margin-top: 32px;">
+        <div class="offer-header">
+          <div>
+            <p class="section-label mb-8">Piano completo 90 giorni</p>
+            <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: 0;">Sistema E-Commerce Acceleration</h3>
+          </div>
+          <div class="offer-price">
+            <p class="price-label">Investimento mensile</p>
+            <p class="price-amount">2.500<span style="font-size: 1.4rem;">€</span></p>
+            <p class="price-period">/mese · 90 giorni</p>
+          </div>
+        </div>
+
+        <ul class="checklist">
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Analisi dati completa</strong> del tuo store, storico campagne e mercato di riferimento</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Algoritmo proprietario di analisi creatività</strong> — identifichiamo cosa converte in 48 ore</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Gestione campagne Meta Ads completa</strong> — strategia, setup, ottimizzazione continua</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Creatività ad alto impatto</strong> — brief, produzione e testing sistematico degli asset</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Sistema di scaling automatico</strong> — regole e struttura per scalare il budget in sicurezza</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Report settimanali e dashboard live</strong> — dati chiari, zero sorprese</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Accesso diretto al team</strong> — supporto prioritario via Slack per tutta la durata</span>
+          </li>
+          <li>
+            <svg class="check-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            <span><strong>Strategia a lungo termine consegnata a te</strong> — il sistema rimane tuo, anche dopo</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Principale -->
+  <section class="cta-section">
+    <div class="container">
+      <p class="section-label text-center mb-16">Inizia oggi</p>
+      <h2 class="cta-title">
+        Pronto a portare il tuo<br />
+        e-commerce a 50k/mese?
+      </h2>
+      <p class="cta-subtitle">
+        Prenota ora una call gratuita di 30 minuti. Analizziamo il tuo store insieme e ti mostriamo esattamente come applicare il Sistema E-Commerce Acceleration al tuo business.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://calendly.com/marco-bianchi/call-gratuita" target="_blank" rel="noopener noreferrer" class="btn-primary" onclick="fbq('track', 'Lead');">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Prenota la tua call gratuita
+        </a>
+        <a href="https://wa.me/+393331234567" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Scrivici su WhatsApp
+        </a>
+      </div>
+
+      <p class="cta-micro-copy">
+        Nessun impegno. Nessuna carta di credito richiesta.<br />
+        Solo 30 minuti per capire se siamo adatti al tuo business.
+      </p>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- Garanzia -->
+  <section class="copy-section">
+    <div class="container">
+      <div class="guarantee-box">
+        <div class="guarantee-icon">
+          <svg width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="#2563EB" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+        </div>
+        <h2 class="guarantee-title">Garanzia ROAS 3x o rimborso totale</h2>
+        <p class="guarantee-text">
+          Siamo talmente sicuri dei risultati del nostro sistema che offriamo una garanzia senza compromessi: <strong>se non ottieni almeno un ROAS di 3x entro 90 giorni, ti rimborsiamo interamente l'investimento</strong>. Nessuna scusa, nessun asterisco. Il rischio è nostro, non tuo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="container">
+      <p class="section-label">Domande frequenti</p>
+      <h2 class="section-title">Hai dubbi? Rispondiamo.</h2>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">
+              Ho già provato le ads e non hanno mai funzionato. Perché con voi dovrebbe essere diverso?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>È la domanda più comune che riceviamo — e la più legittima. La verità è che la maggior parte dei tentativi falliti arriva da un approccio sbagliato: si lanciano campagne senza un sistema, si testa a caso, si spera che l'algoritmo faccia tutto da solo. <strong>Noi non gestiamo ads. Costruiamo un sistema.</strong> Il nostro algoritmo proprietario identifica in 48 ore cosa converte davvero per il tuo pubblico specifico, prima di investire budget significativo. Questo cambia tutto. E se non funziona, ti rimborsiamo: quindi il rischio non è tuo.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">
+              Non ho un grande budget da investire in questo momento. Posso comunque accedere?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Il nostro servizio è 2.500€/mese per la gestione — a cui si aggiunge il budget ads che investi direttamente nelle piattaforme. <strong>Lavoriamo con store che hanno almeno 2.000-3.000€/mese da dedicare alle campagne</strong>, perché sotto quella soglia è difficile raccogliere dati sufficienti per ottimizzare in modo efficace. Detto questo, il nostro obiettivo è che il sistema si paghi da solo dal primo mese: con un ROAS di 4.2x medio, ogni euro investito ne genera oltre quattro in vendite. La call gratuita serve anche a capire se il momento è giusto per te.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="faq-item">
+          <details>
+            <summary class="faq-question">
+              Ho bisogno di risultati subito. In quanto tempo vedrò i primi ritorni?
+              <svg class="faq-chevron" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </summary>
+            <div class="faq-answer">
+              <p>Capisco l'urgenza — è legittima. La nostra struttura a 3 fasi è progettata proprio per questo: <strong>già nel primo mese le campagne devono essere profittevoli</strong>. Non promettiamo miracoli istantanei, ma promettiamo un processo chiaro: analisi nella prima settimana, campagne live entro 10-14 giorni, ottimizzazione continua. Casi come Giorgio — da 8k a 47k in 3 mesi — non sono eccezioni, sono il risultato di un sistema che funziona. E la garanzia di rimborso al 90° giorno ti protegge in ogni caso.</p>
+            </div>
+          </details>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- CTA Finale -->
+  <section class="cta-section" style="padding-top: 80px;">
+    <div class="container">
+      <h2 class="cta-title">
+        Un sistema. 90 giorni.<br />
+        <span style="color: var(--accent);">50k/mese.</span>
+      </h2>
+      <p class="cta-subtitle">
+        Ogni settimana che aspetti è fatturato che perdi. Prenota ora la tua call gratuita e scopri esattamente come applicare il Sistema E-Commerce Acceleration al tuo store.
+      </p>
+
+      <div class="cta-buttons">
+        <a href="https://calendly.com/marco-bianchi/call-gratuita" target="_blank" rel="noopener noreferrer" class="btn-primary" onclick="fbq('track', 'Lead');">
+          <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          </svg>
+          Prenota la tua call gratuita
+        </a>
+        <a href="https://wa.me/+393331234567" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h
